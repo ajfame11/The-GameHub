@@ -6,9 +6,11 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import React, { Component } from 'react'
 import Home from './pages/home/Home'
 import GameDetails from './pages/GameDetails';
-import AddGame from './components/AddGame'
+import AddGame from './components/AddGame';
+import EditGame from './components/EditGame'
  
 
 export default function App() {
@@ -29,6 +31,9 @@ export default function App() {
           <Route path="/">
             <Home />
           </Route>
+          <Route path="/games/:id/edit">
+            <EditGame/>
+          </Route> 
         </Switch>
       </div>
     </Router>

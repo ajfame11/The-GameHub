@@ -24,7 +24,29 @@ export const homeReducer = (state = defaultState, action) => {
             ...state,
             selectedGame: action.payload
         }
+
+        // //CREATE    //Ask about this piece of code
+        // case 'ADDING_GAME': return {
+        //     ...state,
+        //     listOfGames: [...state.listOfGames, action.payload]
+            
+        // }
+
+        //EDIT    
+        case 'EDITING_GAME': return {
+            ...state,
+            selectedGame: [...state.listOfGames, action.payload]
+            
+        }
+
+        // //DELETE    
+        // case 'DELETE_GAME': return {
+        //     ...state,
+        //     listOfGames: action.payload
+            
+        // }
     
+        //DEFAULT
         default: return state
     }
   }

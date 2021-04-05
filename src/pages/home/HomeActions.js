@@ -57,24 +57,24 @@ export const addGame = (game) => {
     }
 }
 
-// export const editGame = (game) => { 
-//     let game = {title: game.title, description: game.description}
-//     return dispatch => {
-//         dispatch({type: "EDITING_GAME"})
-//         fetch(`/http://localhost:4000/games/${game.id}`,{
-//             method: 'PATCH',
-//             body: JSON.stringify(game),
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Accept": "application/json"
-//             }
-//         })
-//         .then(() => dispatch({type: "GAME_EDITED", payload: game}))
-//         .catch((error) => {
-//             console.error('Error:', error);
-//           })
-//     }
-// }
+export const editGame = (gamepassed) => { 
+    let game = {title: gamepassed.title, description: gamepassed.description, image: gamepassed.image}
+    return dispatch => {
+        dispatch({type: "EDITING_GAME"})
+        fetch(`/http://localhost:4000/games/${game.id}`,{
+            method: 'PATCH',
+            body: JSON.stringify(game),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        .then(() => dispatch({type: "GAME_EDITED", payload: game}))
+        .catch((error) => {
+            console.error('Error:', error);
+          })
+    }
+}
 
 // export const deleteGame = (id) => {
 //     return dispatch => {
