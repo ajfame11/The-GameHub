@@ -14,6 +14,16 @@ export const homeReducer = (state = defaultState, action) => {
             listOfGames: action.payload
             
         }
+
+        // case 'GAMES_LOADED': return {
+        //     ...state,
+        //     gamesLoaded: true
+        // }
+
+        case 'SELECT_GAME': return {
+            ...state,
+            selectedGame: action.payload
+        }
     
         default: return state
     }

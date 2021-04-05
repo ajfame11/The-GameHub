@@ -11,7 +11,6 @@ export const history = createBrowserHistory()
 const rootReducer = combineReducers({
     router: connectRouter(history),
     games: homeReducer,
-    oone: 1
   })
   const middleware = [routerMiddleware(history), thunk]
   const enhancer = window.__REDUX_DEVTOOLS_EXTENSION__ || compose
