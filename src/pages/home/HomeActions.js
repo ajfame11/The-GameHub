@@ -79,19 +79,19 @@ export const editGame = (gamepassed) => {
     }
 }
 
-// export const deleteGame = (id) => {
-//     return dispatch => {
-//         dispatch({type: "DELETENG_GAME"})
-//         fetch(`/http://localhost:4000/games/${id}`,{
-//             method: "DELETE",
-//             headers: {
-//                 "Content-Type": "application/json",
-//                 "Accept": "application/json"
-//             }
-//         })
-//         .then(() => dispatch({type: "GAME_DELETED", payload: id}))
-//         .catch((error) => {
-//             console.error('Error:', error);
-//           })
-//     }
-// }
+export const deleteGame = (id) => {
+    return dispatch => {
+        dispatch({type: "DELETE_GAME", payload: id})
+        fetch(`http://localhost:4000/games/${id}`,{
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        })
+        .then(() => dispatch({type: "GAME_DELETED", payload: id}))
+        .catch((error) => {
+            console.error('Error:', error);
+          })
+    }
+}

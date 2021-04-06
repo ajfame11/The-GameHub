@@ -13,6 +13,7 @@ import AddGame from './components/AddGame';
 import EditGame from './components/EditGame';
 import { useDispatch, connect } from 'react-redux';
 import {getGames} from './pages/home/HomeActions'
+//import Navigation from '...'
  
 
 const App = (props) => {
@@ -30,6 +31,7 @@ const App = (props) => {
     }
   }, [])
   return (
+    //<Navigtion /> 
     <Router>
       <div>
 
@@ -45,9 +47,6 @@ const App = (props) => {
           </Route>
           <Route path="/">
             <Home />
-          </Route>
-          <Route path="/games/:id/edit">
-            <EditGame/>
           </Route> 
         </Switch>
       </div>
