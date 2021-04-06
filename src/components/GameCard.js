@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import { useDispatch } from 'react-redux'
 import {useHistory} from 'react-router-dom' 
+import Button from './Button'
+import Image from './Image'
 
 const GameCard = (props) => {
     const game = props.game
@@ -16,8 +18,8 @@ const GameCard = (props) => {
     return (
         <div>
             {game.title} <br/>
-            <img src={game.image} width='400px' height='auto'/> <br/>
-            <button onClick={handleClick}> Details</button>
+            <Image url= {game.image} width= {"400px"}/>
+            <Button title={ "Details"} handleClick = {handleClick}/>
         </div>
     )
 }

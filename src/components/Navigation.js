@@ -6,6 +6,7 @@ const Navigation = () => {
         <div>
             <a href={ "/"}> Home </a>
             <a href={ "/AddGame"}> Add New Game </a>
+
         </div>
     )
 }
