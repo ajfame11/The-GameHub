@@ -8,6 +8,7 @@ const GameCard = (props) => {
     const history = useHistory()
     const handleClick = () => {
         dispatch ({ type: 'SELECT_GAME', payload: game})
+        localStorage.setItem("selectedItem", game.id)
         history.push('/GameDetails')
     }
 

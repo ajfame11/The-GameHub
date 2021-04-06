@@ -5,9 +5,7 @@ import GamesList from '../../components/GamesList'
 
 const Home = (props) => {
     console.log(props)
-    useEffect(() => {
-        props.getGames()
-    }, [])
+    
     console.log(props)
     if (props.games.listOfGames.length<1) return null
     return (

@@ -58,10 +58,10 @@ export const addGame = (game) => {
 }
 
 export const editGame = (gamepassed) => { 
-    let game = {title: gamepassed.title, description: gamepassed.description, image: gamepassed.image}
+    let game = {title: gamepassed.title, description: gamepassed.description, image: gamepassed.image, id: gamepassed.id}
     return dispatch => {
         dispatch({type: "EDITING_GAME"})
-        fetch(`/http://localhost:4000/games/${game.id}`,{
+        return fetch(`http://localhost:4000/games/${game.id}`,{
             method: 'PATCH',
             body: JSON.stringify(game),
             headers: {
@@ -69,7 +69,10 @@ export const editGame = (gamepassed) => {
                 "Accept": "application/json"
             }
         })
-        .then(() => dispatch({type: "GAME_EDITED", payload: game}))
+        .then(() => {
+            dispatch({type: "GAME_EDITED", payload: game})
+            return game
+        })
         .catch((error) => {
             console.error('Error:', error);
           })

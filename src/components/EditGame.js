@@ -1,59 +1,59 @@
 import {editGame} from '../pages/home/HomeActions'
-import { connect } from 'react-redux'
-import React, { Component } from 'react'
+import { connect, useDispatch } from 'react-redux'
+import React, { useState } from 'react'
 import {Button, Card, Form} from 'react-bootstrap'
 import {Link} from 'react-router-dom';
 
-class EditGame extends Component {
-    state = {
-        title: '',
-        description: '',
-        image: '',
-    }
-
-    handleSubmit = (event) =>{
+const EditGame = (props) => {
+    const [ title, setTitle] = useState("")
+    const [ description, setDescription] = useState("")
+    const [ image, setImage] = useState("")
+    const dispatch = useDispatch()
+    const handleSubmit = (event) =>{
         event.preventDefault()
-        const game = {title: this.state.title, description: this.state.description, image: this.state.image}
+        let titleTo = title || props.games.selectedGame.title
+        let descTo = description || props.games.selectedGame.description
+        let imageTo = image || props.games.selectedGame.image 
+        const game = {title: titleTo, description: descTo, image: imageTo, id: props.id}
         console.log("a")
-        this.props.editGame(game)
+        props.editGame(game)
+            .then(res => { 
+                dispatch ({ type: 'SELECT_GAME', payload: res}) 
+            })
         console.log("b")
-        this.setState({
-            title: '',
-            description: '',
-            image: '',
-        })
+        
     }
 
 
-    handleChange = (event) => {
-        this.setTitle ({
-            title: event.target.value
-        })
+    const handleChange = (event) => {
+        setTitle (
+            event.target.value
+        )
     }
 
-    handleDescChange = (event) => {
-        this.setDescription ({
-            description: event.target.value
-        })
+    const handleDescChange = (event) => {
+        setDescription (
+            event.target.value
+        )
     }
 
-    handleImageChange = (event) => {
-        this.setImage ({
-            image: event.target.value
-        })
+    const handleImageChange = (event) => {
+        setImage (
+            event.target.value
+        )
     }
 
-    render() {
+    
         return (
             <div className="center-card">
                 <div className="vertical-center">
                     <Card style={{backgroundColor: '#282c34', width: '25rem', height: '23rem'}} border="light" >
                         <div className = 'pt-2 px-3'>
                         <h1>Edit Game</h1>
-                        <Form onSubmit = {this.handleSubmit}>
+                        <Form onSubmit = {handleSubmit}>
                         <Form.Group controlId="formBasicTitle">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control input type="text" value ={this.state.title} onChange={this.handleChange}  placeholder="Enter Title" />
+                            <Form.Control input type="text" value ={title} onChange={handleChange}  placeholder="Enter Title" />
                             <Form.Text className="text-muted">
                             Add a unique title so your blog sticks out!
                             </Form.Text>
@@ -61,12 +61,12 @@ class EditGame extends Component {
 
                         <Form.Group controlId="formBasicDescription">
                             <Form.Label>Description</Form.Label>
-                            <Form.Control as="textarea" rows={3} value ={this.state.description} onChange={this.handleDescChange} placeholder="Enter Description" />
+                            <Form.Control as="textarea" rows={3} value ={description} onChange={handleDescChange} placeholder="Enter Description" />
                         </Form.Group>
 
                         <Form.Group controlId="formBasicImage">
                             <Form.Label>Image</Form.Label>
-                            <Form.Control as="textarea" rows={3} value ={this.state.image} onChange={this.handleImageChange} placeholder="Enter Image" />
+                            <Form.Control as="textarea" rows={3} value ={image} onChange={handleImageChange} placeholder="Enter Image" />
                         </Form.Group>
                         
                         <Button type="submit">Submit</Button>
@@ -76,8 +76,9 @@ class EditGame extends Component {
                     </Card>
                 </div>
             </div>
+
         )
-    }
+    
 }
 
-export default connect(null,{editGame})(EditGame)
+export default connect(state => state,{editGame})(EditGame)

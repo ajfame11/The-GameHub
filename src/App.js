@@ -6,14 +6,29 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import Home from './pages/home/Home'
 import GameDetails from './pages/GameDetails';
 import AddGame from './components/AddGame';
-import EditGame from './components/EditGame'
+import EditGame from './components/EditGame';
+import { useDispatch, connect } from 'react-redux';
+import {getGames} from './pages/home/HomeActions'
  
 
-export default function App() {
+const App = (props) => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    props.getGames()
+    if(localStorage.getItem("selectedItem")!=undefined){
+      fetch("http://localhost:4000/games/"+localStorage.getItem("selectedItem"))
+        .then(res => res.json())
+        .then(res => {
+          dispatch ({ type: 'SELECT_GAME', payload: res})
+        })
+      
+
+    }
+  }, [])
   return (
     <Router>
       <div>
@@ -40,7 +55,7 @@ export default function App() {
   );
 }
 
-
+export default connect(null, {getGames})(App)
 
 function About() {
   return <h2>About</h2>;
