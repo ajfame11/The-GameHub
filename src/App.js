@@ -13,7 +13,7 @@ import AddGame from './components/AddGame';
 import EditGame from './components/EditGame';
 import { useDispatch, connect } from 'react-redux';
 import {getGames} from './pages/home/HomeActions'
-//import Navigation from '...'
+import Navigation from './components/Navigation'
  
 
 const App = (props) => {
@@ -31,7 +31,8 @@ const App = (props) => {
     }
   }, [])
   return (
-    //<Navigtion /> 
+    <div>
+    <Navigation /> 
     <Router>
       <div>
 
@@ -51,6 +52,7 @@ const App = (props) => {
         </Switch>
       </div>
     </Router>
+    </div>
   );
 }
 
