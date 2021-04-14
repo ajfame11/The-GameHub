@@ -24,6 +24,12 @@
   color: white;
 }
 
+.App-background {
+  background-color: #282c34;
+  color: rgb(255, 255, 255);
+  min-height: 100vh;
+}
+
 .App-link {
   color: #61dafb;
 }

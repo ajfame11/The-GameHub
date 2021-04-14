@@ -31,7 +31,7 @@ const App = (props) => {
     }
   }, [])
   return (
-    <div>
+    <div className="App App-background">
     <Navigation /> 
     <Router>
       <div>

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Button } from 'react-bootstrap'
+import {Button, Card} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import EditGame from '../components/EditGame'
 import {deleteGame} from '../pages/home/HomeActions'
@@ -22,20 +22,25 @@ const GameDetails = (props) => {
 if(game == undefined) return null
     console.log(props)
     return (
-        <div>
-            {game.title} <br/>
-            <img src={game.image} width='400px' height='auto'/> <br/>
-            {game.description}
-            <button onClick={handleClick}> Edit</button>
-            {
-                edit
-                ? <EditGame id = {game.id}/>
-                : null
-            }
-            <button onClick={handleDelete}> Delete</button>
+        <div className="center-card"><br/><br/>
+            <Card border = "light" style={{backgroundColor: '#282c34', width: '60rem'}}>
+                <div className="px-3 py-3">
+                    {game.title} <br/>
+                    <img src={game.image} width='400px' height='auto'/> <br/>
+                    {game.description}<br/><br/>
+                    <button onClick={handleDelete}> Delete</button>
+                    <button onClick={handleClick}> Edit</button>
+                    {
+                        edit
+                        ? <EditGame id = {game.id}/>
+                        : null
+                    }
+                </div>
+            </Card>
         </div>
     )
 }
+
 const mapStateToProps = (state) => {
     return {
         game: state.games.selectedGame

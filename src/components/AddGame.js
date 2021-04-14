@@ -3,6 +3,7 @@ import {addGame} from '../pages/home/HomeActions'
 import { connect } from 'react-redux'
 import {Button, Card, Form} from 'react-bootstrap'
 import {Link} from 'react-router-dom';
+import '../index.css'
 
 
 
@@ -39,24 +40,34 @@ const AddGame = (props) => {
         )
     }
     return (
-        <div>
-            
-            <form onSubmit={handleSubmit}>
-                <label>
-                Name:
-                <input type="text" value={title} onChange={handleChange} />
-                </label>
-                <label>
-                Description:
-                <input type="text" value={description} onChange={handleDescChange} />
-                </label>
-                <label>
-                Image:
-                <input type="text" value={image} onChange={handleImageChange} />
-                </label>
-                <input type="submit" value="Submit" />
-            </form>
-        </div>
+        <div className="center-card">
+                <div className="vertical-center">
+                    <Card style={{backgroundColor: '#282c34', width: '25rem', height: '28rem'}} border="light" >
+                        <div className = 'pt-2 px-3'>
+                        <h1>Add New Game</h1>
+                        <Form onSubmit = {handleSubmit}>
+                        <Form.Group controlId="formBasicTitle">
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control input type="text" value ={title} onChange={handleChange}  placeholder="Enter Title" />
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicDescription">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control as="textarea"  value ={description} onChange={handleDescChange} placeholder="Enter Description" />
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicImage">
+                            <Form.Label>Image</Form.Label>
+                            <Form.Control as="textarea"  value ={image} onChange={handleImageChange} placeholder="Enter Image" />
+                        </Form.Group>
+                        
+                        <Button type="submit">Submit</Button>
+                        
+                        </Form>
+                        </div>
+                    </Card>
+                </div>
+            </div>
 
     )
 }
