@@ -22,7 +22,7 @@ const GameDetails = (props) => {
 if(game == undefined) return null
     console.log(props)
     return (
-        <div className="center-card"><br/><br/>
+        <div className="center-card">
             <Card border = "light" style={{backgroundColor: '#282c34', width: '60rem'}}>
                 <div className="px-3 py-3">
                     {game.title} <br/>

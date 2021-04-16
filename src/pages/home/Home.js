@@ -6,7 +6,6 @@ import GamesList from '../../components/GamesList'
 const Home = (props) => {
     console.log(props)
     
-    console.log(props)
     if (props.games.listOfGames.length<1) return null
     return (
         <div>

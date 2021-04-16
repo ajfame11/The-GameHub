@@ -47,32 +47,40 @@ const EditGame = (props) => {
     
         return (
             <div className="center-card">
-                <div >
-                    <Card style={{backgroundColor: '#282c34', width: '25rem', height: '23rem'}} border="light" >
+                    <Card style={{backgroundColor: '#282c34', width: '25rem', }} border="light" >
                         <div className = 'pt-2 px-3'>
                         <h1>Edit Game</h1>
                         <Form onSubmit = {handleSubmit}>
                         <Form.Group controlId="formBasicTitle">
                             <Form.Label>Title</Form.Label>
-                            <Form.Control input type="text" value ={title} onChange={handleChange}  placeholder="Enter Title" />
+                            <Form.Control input={'true'} type="text" value ={title} onChange={handleChange}  placeholder="Enter Title" />
+                            <Form.Text className="text-muted">
+                                Add Game Title Here!
+                            </Form.Text>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicDescription">
                             <Form.Label>Description</Form.Label>
                             <Form.Control as="textarea"  value ={description} onChange={handleDescChange} placeholder="Enter Description" />
+                            <Form.Text className="text-muted">
+                                Add Game Description Here!
+                            </Form.Text>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicImage">
                             <Form.Label>Image</Form.Label>
                             <Form.Control as="textarea"  value ={image} onChange={handleImageChange} placeholder="Enter Image" />
+                            <Form.Text className="text-muted">
+                                Add Game Image Here!
+                            </Form.Text>
                         </Form.Group>
                         
                         <Button type="submit">Submit</Button>
+                        <Link to = "/GameDetails"><Button variant="danger">Cancel</Button></Link>
                         
                         </Form>
                         </div>
                     </Card>
-                </div>
             </div>
 
         )
