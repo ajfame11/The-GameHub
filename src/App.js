@@ -15,6 +15,7 @@ import Navigation from './components/Navigation'
 
 const App = (props) => {
   const dispatch = useDispatch()
+
   useEffect(() => {
     props.getGames()
     if(localStorage.getItem("selectedItem")!==undefined){
@@ -23,10 +24,9 @@ const App = (props) => {
         .then(res => {
           dispatch ({ type: 'SELECT_GAME', payload: res})
         })
-      
+      };
+  }, [dispatch, props])
 
-    }
-  }, [])
   return (
     <div className="App App-background">
     <Navigation /> 
