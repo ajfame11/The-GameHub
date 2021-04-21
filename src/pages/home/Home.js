@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import {getGames} from './HomeActions'
 import {connect} from 'react-redux'
 import GamesList from '../../components/GamesList'

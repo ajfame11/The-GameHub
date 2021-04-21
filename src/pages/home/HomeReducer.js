@@ -42,7 +42,7 @@ export const homeReducer = (state = defaultState, action) => {
         //DELETE    
         case 'DELETE_GAME': return {
             ...state,
-            listOfGames: [...state.listOfGames.filter(item => item.id != action.payload)]
+            listOfGames: [...state.listOfGames.filter(item => item.id !== action.payload)]
             
         }
     

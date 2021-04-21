@@ -1,4 +1,4 @@
-// import React, {useEffect} from 'react'
+import React from 'react'
 import GameCard from './GameCard'
 // import { CardDeck, Card, Form} from 'react-bootstrap'
 import '../index.css'

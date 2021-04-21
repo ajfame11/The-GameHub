@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {Button, Card} from 'react-bootstrap'
+import React, { useState} from 'react'
+import { Card} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import EditGame from '../components/EditGame'
 import {deleteGame} from '../pages/home/HomeActions'
@@ -19,14 +19,14 @@ const GameDetails = (props) => {
         
         history.push("/")
     }
-if(game == undefined) return null
+if(game === undefined) return null
     console.log(props)
     return (
         <div className="center-card">
             <Card border = "light" style={{backgroundColor: '#282c34', width: '60rem'}}>
                 <div className="px-3 py-3">
                     {game.title} <br/>
-                    <img src={game.image} width='400px' height='auto'/> <br/>
+                    <img src={game.image} alt="" width='400px' height='auto'/> <br/>
                     {game.description}<br/><br/>
                     <button onClick={handleDelete}> Delete</button>
                     <button onClick={handleClick}> Edit</button>

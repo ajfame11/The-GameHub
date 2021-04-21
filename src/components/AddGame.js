@@ -44,7 +44,7 @@ const AddGame = (props) => {
             <div className="vertical-center">
                 <Card style={{backgroundColor: '#282c34', width: '25rem', }} border="light" >
                     <div className = 'pt-2 px-3'>
-                        <h1>Edit Game</h1>
+                        <h1>Add Game</h1>
                         <Form onSubmit = {handleSubmit}>
                                 
                                 <Form.Group controlId="formBasicTitle">
@@ -84,3 +84,4 @@ const AddGame = (props) => {
 }
 
 export default connect(state => state, {addGame})(AddGame)
+

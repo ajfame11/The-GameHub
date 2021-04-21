@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux'
 import {useHistory} from 'react-router-dom' 
 import Button from './Button'
 import Image from './Image'
-import { CardDeck, Card, Form} from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import '../index.css'
 
 
