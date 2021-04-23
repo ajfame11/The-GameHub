@@ -22,7 +22,6 @@ const GameCard = (props) => {
         <div className="center-card">
             <div className="py-3 px-3">
                 <Card style={{backgroundColor: '#282c34', width: '30rem'}} border="light"  >
-                    {/* <link rel="stylesheet" href= "https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"></link> */}
                     {game.title } <br/>
                     <Image url= {game.image} width= {"400px"} height= {"400px"} />
                     <Button title={ "Details"} handleClick = {handleClick}/>
