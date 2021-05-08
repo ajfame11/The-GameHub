@@ -17,7 +17,10 @@ const GameCard = (props) => {
         console.log(game)
         history.push('/games/'+game.id)
     }
-    
+    // const handleClick = () => {
+    //     dispatch ({ type: 'SELECT_GAME', payload: game}).sort(function(obj1, obj2) {
+    //   return obj1.id - obj2.id;
+    // }
 
 
     return (
