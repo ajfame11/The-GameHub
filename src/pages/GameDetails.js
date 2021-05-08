@@ -1,19 +1,38 @@
-import React, { useState} from 'react'
+import React, { useEffect, useState} from 'react'
 import { Card} from 'react-bootstrap'
 import { connect } from 'react-redux'
 import EditGame from '../components/EditGame'
 import {deleteGame} from '../pages/home/HomeActions'
 import {useHistory} from 'react-router-dom'
+import {useParams} from "react-router-dom"
+
 
 
 
 const GameDetails = (props) => {
     const [edit, setEdit] = useState(false)
     const history = useHistory()
-    const game = props.game
+    // const game = props.game
     const handleClick = () => {
         setEdit(!edit)
     }
+
+    const {id} = useParams()
+
+    useEffect(() => {
+        getGame(id)
+    })
+
+    const [game, setgame] = useState([]);
+
+    const getGame = (id) => {
+        fetch(`http://localhost:4000/games/${id}`)
+        .then(resp => resp.json())
+        .then(data => {
+            setgame(data)
+        })
+    }
+
     const handleDelete = () => {
         props.deleteGame(game.id)
         
