@@ -40,7 +40,7 @@ const App = (props) => {
           <Route path="/AddGame">
             <AddGame />
           </Route>
-          <Route path="/GameDetails">
+          <Route path="/games/:id">
             <GameDetails />
           </Route>
           <Route path="/">
